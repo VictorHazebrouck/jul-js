@@ -5,11 +5,14 @@
     "keywords": [],
     "author": "Victor Hazebrouck <hazebrouck.victor@gmail.com>",
     "license": "MIT",
-    "repository": "",
+    "repository": "https://github.com/VictorHazebrouck/jul-js",
     "type": "module",
     "exports": {
         "default": "./_builds/index.js"
     },
+    "files": [
+        "_builds/index.js"
+    ],
     "scripts": {
         "format": "prettier . --write --config prettier.config.js",
         "size": "size-limit",
