@@ -1,6 +1,6 @@
 {
     "name": "jul-js",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Tiny (<1kB) reactivity library for people alergic to vanilla.",
     "keywords": [],
     "author": "Victor Hazebrouck <hazebrouck.victor@gmail.com>",
