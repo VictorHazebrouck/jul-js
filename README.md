@@ -32,7 +32,10 @@ having to bother whith manual dom stuff. Here's a basic example of what you can
 do with jul-js:
 
 ```html
-<div jul-state="{counter: 1}" jul-effect="if(counter == 5) alert('counter reached 5!')">
+<div
+  jul-state="{counter: 1}"
+  jul-effect="if(counter == 5) alert('counter reached 5!')"
+>
     <p jul-text="counter"></p>
     <button jul-on:click="counter++">inc</button>
 </div>
