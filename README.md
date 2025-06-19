@@ -120,6 +120,7 @@ Jul-bind sets a specific property to the evaluated expression or statement.
   <p jul-bind:style="style">Hello world</p>
 </div>
 ```
+
 Here, whenever the style value changes, the effect is reran and the style kept
 in sync.
 
