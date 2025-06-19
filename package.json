@@ -13,6 +13,7 @@
     "files": [
         "_builds/index.js"
     ],
+    "main": "_builds/index.js",
     "scripts": {
         "format": "prettier . --write --config prettier.config.js",
         "size": "size-limit",

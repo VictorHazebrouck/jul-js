@@ -47,6 +47,8 @@ A few things are happening here:
 
 - **jul-state="{counter: 1}"**: initializes a node-scope reactive variable
   `counter` with a value of 1.
+- **jul-state="{counter: 1}"**: initializes a node-scope reactive variable
+  `counter` with a value of 1.
 - **jul-effect="if(counter == 5) alert('counter reached 5!')"**: effect reran
   each time one of its dependencies (`counter` in that case) changes.
 - **jul-text="counter"**: assigns and syncs the textContent property of the p
@@ -59,9 +61,60 @@ A few things are happening here:
 
 ### jul-state
 
+Jul state is one of the most important constructs in jul-js. It initializes a
+new reactive piece of state. To access the value of a state, just use the name
+of its property. The state scoped to the node it is defined in.
+
+```html
+<!-- Ok, counter in scope -->
+<div jul-state="{counter: 1}">
+  <p jul-text="counter"></p> <!-- textContent is 0 -->
+</div>
+
+<!-- Not ok, counter not in scope -->
+<div jul-state="{counter: 1}"></div>
+<p jul-text="counter"></p>
+```
+
 ### jul-effect
 
+Jul effect goes hand in hand with `jul-state`, and is the basis on which most
+other constructs are built, like `jul-text` we just saw above.
+
+```html
+<div
+  jul-state="{counterA: 1, counterB: 1}"
+  jul-effect="console.log(counterA)"
+>
+  <button jul-on:click="counterA++">A++</button>
+  <button jul-on:click="counterB++">B++</button>
+</div>
+```
+
+For context, here `jul-on:click` attaches an onclick listener to the button,
+more one that later.
+
+The reactivity system used is based on "signals", each effect is run once
+on init, during this init call we link the effect to its dependencies (here
+"counterA"), thus each time the "counterA" value changes, the effect is ran
+again, but not when "counterB" changes.
+
+As you can now guess, jul-text internally is just a jul-effect that sets the
+textContent property of the node it's attached to.
+
 ### jul-on:
+
+Jul-on
+
+```html
+<div
+  jul-state="{counterA: 1, counterB: 1}"
+  jul-effect="console.log(counterA)"
+>
+  <button jul-on:click="counterA++">A++</button>
+  <button jul-on:click="counterB++">B++</button>
+</div>
+```
 
 ### jul-bind:
 
