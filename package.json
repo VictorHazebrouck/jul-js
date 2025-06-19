@@ -1,6 +1,6 @@
 {
     "name": "jul-js",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "Tiny (<1kB) reactivity library for people alergic to vanilla.",
     "keywords": [],
     "author": "Victor Hazebrouck <hazebrouck.victor@gmail.com>",
@@ -8,7 +8,7 @@
     "repository": "https://github.com/VictorHazebrouck/jul-js",
     "type": "module",
     "exports": {
-        "default": "./_builds/index.js"
+        ".": "./_builds/index.js"
     },
     "files": [
         "_builds/index.js"
