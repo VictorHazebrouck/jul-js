@@ -6,8 +6,8 @@ const jul_elems_map = new Map<HTMLElement, JulCtx>();
 const jul_on_node_removed = new Map<HTMLElement, Callback>();
 
 export function handle_jul_node(node: HTMLElement, jul_ctx: JulCtx): JulCtx {
-    if (jul_elems_map.has(node)) {
-        return jul_elems_map.get(node)!;
+    if (jul_elems_map.get(node)) {
+        return jul_elems_map.get(node);
     }
 
     const state = node.getAttribute("jul-state");
