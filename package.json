@@ -1,0 +1,42 @@
+{
+    "name": "jul-js",
+    "version": "0.0.1",
+    "description": "Tiny (<1kB) reactivity library for people alergic to vanilla.",
+    "keywords": [],
+    "author": "Victor Hazebrouck <hazebrouck.victor@gmail.com>",
+    "license": "MIT",
+    "repository": "",
+    "type": "module",
+    "scripts": {
+        "format": "prettier . --write --config prettier.config.js",
+        "size": "size-limit",
+        "test": "bun test",
+        "build": "bun build.bun.ts",
+        "prepare": "husky"
+    },
+    "size-limit": [
+        {
+            "name": "Gzip",
+            "path": "./_builds/index.js",
+            "limit": "1000 B",
+            "gzip": true
+        },
+        {
+            "name": "Brotli",
+            "path": "./_builds/index.js",
+            "limit": "1000 B",
+            "brotli": true
+        }
+    ],
+    "devDependencies": {
+        "@size-limit/preset-app": "^11.2.0",
+        "@types/bun": "^1.2.16",
+        "@types/jsdom": "^21.1.7",
+        "husky": "^9.1.7",
+        "jsdom": "^26.1.0",
+        "prettier": "^3.5.3",
+        "size-limit": "^11.2.0",
+        "terser": "^5.42.0",
+        "typescript": "^5.8.3"
+    }
+}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script defer type="module" src="index.js"></script>
+    </head>
+    <body id="body" jul-state="{users: ['pierre', 'paul']}">
+        <!-- counter -->
+        <div jul-on:click="users = [...users, 'john']">
+            <template jul-for="users">
+                <div jul-text="users[i]" jul-effect="console.log('haha')">hahahah</div>
+            </template>
+        </div>
+
+        <button jul-on:click="users = [...users, 'john'];">add John</button>
+        <button jul-on:click="users = []">rm users</button>
+    </body>
+</html>

@@ -1,0 +1,4 @@
+bun run format
+bun run build
+bun run test
+bun run size
