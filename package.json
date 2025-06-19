@@ -5,7 +5,10 @@
     "keywords": [],
     "author": "Victor Hazebrouck <hazebrouck.victor@gmail.com>",
     "license": "MIT",
-    "repository": "https://github.com/VictorHazebrouck/jul-js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VictorHazebrouck/jul-js.git"
+    },
     "type": "module",
     "exports": {
         ".": "./_builds/index.js"
