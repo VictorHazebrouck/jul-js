@@ -32,6 +32,8 @@ having to bother whith manual dom stuff. Here's a basic example of what you can
 do with jul-js:
 
 ```html
+<script defer src="//unpkg.com/jul-js@0.0.1"></script>
+
 <div
   jul-state="{counter: 1}"
   jul-effect="if(counter == 5) alert('counter reached 5!')"
