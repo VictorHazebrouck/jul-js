@@ -47,8 +47,6 @@ A few things are happening here:
 
 - **jul-state="{counter: 1}"**: initializes a node-scope reactive variable
   `counter` with a value of 1.
-- **jul-state="{counter: 1}"**: initializes a node-scope reactive variable
-  `counter` with a value of 1.
 - **jul-effect="if(counter == 5) alert('counter reached 5!')"**: effect reran
   each time one of its dependencies (`counter` in that case) changes.
 - **jul-text="counter"**: assigns and syncs the textContent property of the p
@@ -104,22 +102,86 @@ textContent property of the node it's attached to.
 
 ### jul-on:
 
-Jul-on
+Jul-on attaches a specific event listener to a node.
 
 ```html
-<div
-  jul-state="{counterA: 1, counterB: 1}"
-  jul-effect="console.log(counterA)"
->
-  <button jul-on:click="counterA++">A++</button>
-  <button jul-on:click="counterB++">B++</button>
-</div>
+<button jul-on:click="console.log('click!')">click</button>
 ```
+
+Here, it attaches a "click" eventListener to the button. Whenever the button
+is clicked, "click!" is logged.
 
 ### jul-bind:
 
+Jul-bind sets a specific property to the evaluated expression or statement.
+
+```html
+<div jul-state="{style: {color: 'red'}}">
+  <p jul-bind:style="style">Hello world</p>
+</div>
+```
+Here, whenever the style value changes, the effect is reran and the style kept
+in sync.
+
+`jul-on:class` is an exception, instead of fully repacing the value, it adds
+to the existing classes.
+
+```html
+<div jul-state="{inStock: false}">
+  <p class="bg-red" jul-bind:class="isStock && 'underline'">Some product</p>
+</div>
+```
+
+Here the original class stays intact, and the 'underline' class is added or
+removed dynamically according to the value of inStock.
+
 ### jul-show
+
+Jul-show allows to dynamically display dom elements.
+
+```html
+<div jul-state="{shouldShow: true}">
+  <p jul-show="shouldShow == true">Hello world!<p>
+</div>
+```
+
+Here, if shouldShow is true, "Hello world!" p is displayed, if the value is
+changed to false, then the p's display will be set to none.
 
 ### jul-model
 
+Jul-model allows for 2 ways data binding between an input field and a piece
+of state.
+
+```html
+<div jul-state="{name: ''}">
+  <input jul-model="name"/>
+  <p jul-text="name"></p>
+</div>
+```
+
+Here, the name state will be kept in sync with the input value. Thus, the p's
+text as well.
+
 ### jul-for
+
+Jul-for allows to loop over an array of elements.
+
+```html
+<div jul-state="{users: ['John', 'Jane']}">
+  <div>
+    <template jul-for="users">
+      <!-- i is available inside the template -->
+      <p jul-text="users[i]"></p>
+    </template>
+  </div>
+
+  <button jul-on:click="users = [...users, 'Paul']">Add Paul</button
+</div>
+```
+
+Here, we loop over the users array, and display a list of p containing their
+names. Notice that just like react, to update state of object/arrays you must
+pass in a new reference. Also note that no optimization in done for loops,
+each time you change the array, all elements are removed from the dom and
+reinjected from scratch, so do not rely on internal state in the template.
