@@ -22,9 +22,7 @@ Here's where jul-js comes in, the goal is to be able introduce dynamic behavior
 into no build websites/microfrontends, with React-ish ergonomics, basically
 "for free" (<1kB lib bundle size).
 
-### Credits
-
-I'm a huge fan of the Alpine.js library by Caleb Porzio. This is probably all a
+And I'm a huge fan of the Alpine.js library by Caleb Porzio. This is probably all a
 big excuse for building a minimal version of it myself.
 
 ## Overview
