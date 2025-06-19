@@ -9,13 +9,6 @@
         "type": "git",
         "url": "git+https://github.com/VictorHazebrouck/jul-js.git"
     },
-    "type": "module",
-    "exports": {
-        ".": "./_builds/index.js"
-    },
-    "files": [
-        "_builds/index.js"
-    ],
     "main": "_builds/index.js",
     "scripts": {
         "format": "prettier . --write --config prettier.config.js",
