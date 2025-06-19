@@ -10,6 +10,9 @@
         "url": "git+https://github.com/VictorHazebrouck/jul-js.git"
     },
     "main": "_builds/index.js",
+    "files": [
+        "_builds/index.js"
+    ],
     "scripts": {
         "format": "prettier . --write --config prettier.config.js",
         "size": "size-limit",
